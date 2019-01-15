@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:padding="12dp"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     <TextView
+            tools:text="Id"
             android:id="@+id/account_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
     <TextView
+            tools:text="Account name"
             android:id="@+id/account_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

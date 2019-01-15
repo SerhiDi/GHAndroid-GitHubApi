@@ -9,9 +9,13 @@ import com.trazi.githubretrofit.utils.Account
 import com.trazi.githubretrofit.utils.Constants
 import kotlinx.android.synthetic.main.account_item.view.*
 
-class AccountAdapter : RecyclerView.Adapter<AccountAdapter.AccountViewHolder>() {
+class AccountAdapter(private val callback: OnAccountItemClick) : RecyclerView.Adapter<AccountAdapter.AccountViewHolder>() {
 
     private val accountsList: Array<Account> = Constants.ACCOUNTS_LIST
+
+    interface OnAccountItemClick {
+        fun onAccountItemClick(position: String)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AccountViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.account_item, parent, false)
@@ -25,8 +29,15 @@ class AccountAdapter : RecyclerView.Adapter<AccountAdapter.AccountViewHolder>() 
         holder.itemView.account_name.text = accountsList[position].name
     }
 
-    inner class AccountViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class AccountViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
+        init {
+            view.setOnClickListener(this)
+        }
 
+        override fun onClick(v: View?) {
+            val accountId = accountsList[adapterPosition].id
+            callback.onAccountItemClick(accountId)
+        }
     }
 
 }
