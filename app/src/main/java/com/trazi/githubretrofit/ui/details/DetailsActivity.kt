@@ -2,8 +2,8 @@ package com.trazi.githubretrofit.ui.details
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.DialogFragment
+import com.squareup.picasso.Picasso
 import com.trazi.githubretrofit.R
 import com.trazi.githubretrofit.dialog.LoadingSpinner
 import com.trazi.githubretrofit.model.GitHubAccountResponse
@@ -34,6 +34,14 @@ class DetailsActivity : AppCompatActivity(), DetailsView {
     override fun showAccountDetails(account: GitHubAccountResponse) {
         user_name.text = account.name
         user_login.text = account.login
+        user_repos.text = account.publicRepos.toString()
+        user_followers.text = account.followers.toString()
+        user_following.text = account.following.toString()
+        user_gists.text = account.publicGists.toString()
+        user_id.text = account.id.toString()
+        user_type.text = account.type
+
+        Picasso.get().load(account.avatarUrl).into(user_avatar)
     }
 
     override fun showSpinner() {
