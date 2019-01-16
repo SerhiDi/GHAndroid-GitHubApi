@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GithubRetrofit</string>
+    <string name="following">Following</string>
+    <string name="followers">Followers</string>
+    <string name="repositories">Repositories</string>
+    <string name="gists">Gists</string>
+    <string name="id">Id</string>
+    <string name="type">Type</string>
 </resources>
