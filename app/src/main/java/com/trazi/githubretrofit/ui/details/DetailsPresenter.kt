@@ -12,6 +12,7 @@ class DetailsPresenter(
     val view: DetailsView
 ) {
     fun getAccountDetails(accountId: String) {
+        view.showSpinner()
         repository.getAccountDetails(accountId).enqueue(object : Callback<GitHubAccountResponse> {
             override fun onResponse(
                 call: Call<GitHubAccountResponse>,
@@ -19,10 +20,12 @@ class DetailsPresenter(
             ) {
                 Log.d("TAG", response.body()!!.toString())
                 view.showAccountDetails(response.body()!!)
+                view.hideSpinner()
             }
 
             override fun onFailure(call: Call<GitHubAccountResponse>, t: Throwable) {
                 // fail
+                view.hideSpinner()
             }
         })
     }

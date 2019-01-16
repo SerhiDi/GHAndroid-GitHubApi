@@ -4,4 +4,6 @@ import com.trazi.githubretrofit.model.GitHubAccountResponse
 
 interface DetailsView {
     fun showAccountDetails(account: GitHubAccountResponse)
+    fun showSpinner()
+    fun hideSpinner()
 }

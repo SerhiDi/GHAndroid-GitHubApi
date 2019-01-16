@@ -10,4 +10,4 @@ data class GitHubAccountResponse(
     @SerializedName("following") val following: Int,
     @SerializedName("avatar_url") val avatarUrl: String,
     @SerializedName("public_repos") val publicRepos: String
-    )
+)
