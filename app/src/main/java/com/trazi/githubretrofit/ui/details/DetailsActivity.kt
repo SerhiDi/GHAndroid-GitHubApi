@@ -2,6 +2,7 @@ package com.trazi.githubretrofit.ui.details
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.DialogFragment
 import com.squareup.picasso.Picasso
 import com.trazi.githubretrofit.R
@@ -45,6 +46,7 @@ class DetailsActivity : AppCompatActivity(), DetailsView {
     }
 
     override fun showSpinner() {
+        details_page.visibility = View.GONE
         LoadingSpinner().show(supportFragmentManager, SPINNER_TAG)
     }
 
@@ -52,6 +54,7 @@ class DetailsActivity : AppCompatActivity(), DetailsView {
         val spinner = supportFragmentManager.findFragmentByTag(SPINNER_TAG) as? DialogFragment
         if (spinner !== null) {
             spinner.dismiss()
+            details_page.visibility = View.VISIBLE
         }
     }
 }
